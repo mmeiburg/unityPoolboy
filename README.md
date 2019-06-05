@@ -36,7 +36,7 @@ public class ExampleClass
 
 ```
 
-## How it works
+## How it works?
 
 If you call `GetPooledInstance()` you get a `GameObject` out of a list of disabled GameObjects depends on the prefabs instance id. If no object is available a new one will be added. 
 
