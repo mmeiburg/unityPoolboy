@@ -1,7 +1,7 @@
 # Pool Attendant
 
 Pool Attendant is a simple object pooling solution for unity.
-My goal was to have the easiest way to get the pooling functionality for my game jams and new project without thinking always about the same thing over and over again. So here it is the Pool Attendant :)
+My goal was to have the easiest way to get the pooling functionality for my games without thinking always about the same thing over and over again. So here it is the Pool Attendant :)
 
 ## What you get?
 You get a pool to reduce lags during runtime if you want to instantiate GameObjects.
