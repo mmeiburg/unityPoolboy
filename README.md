@@ -38,21 +38,21 @@ public class ExampleClass
 
 ## How it works
 
-If you call GetPooledInstance() you get a GameObject out of a list of disabled GameObjects depends on the prefabs instance id. If no object is available a new one will be added. 
+If you call *GetPooledInstance()* you get a *GameObject* out of a list of disabled GameObjects depends on the prefabs instance id. If no object is available a new one will be added. 
 
-The typical reseting part takes place in unity's OnDisable() Method so you dont have to call reset or something to the a valid state of the object. You just have to clean it up in OnDisable(). Easy right? :)
+The typical reseting part takes place in unity's *OnDisable()* Method so you dont have to call reset or something to the a valid state of the object. You just have to clean it up in *OnDisable()*. Easy right? :)
 
-Additionally every pooled object gets a PoolEntity Component, the only reason for this is to reparenting a pooled object to the pool if you changed his parent after calling GetPooledInstance();
+Additionally every pooled object gets a *PoolEntity* Component, the only reason for this is to reparenting a pooled object to the pool if you changed his parent after calling *GetPooledInstance()*;
 
-The last important part is that you have to call Pool.Initialize(); Somewhere to populate the pool at the start, that reduces lag spikes during the gameplay.
+The last important part is that you have to call *Pool.Initialize()*; Somewhere to populate the pool at the start, that reduces lag spikes during the gameplay.
 
 ### PoolSettings
 
-To populate the Pool at the start of your game with some preconfigured prefabs you can use the PoolSettings to do so. You can create them with [Tools->Pool->Create Pool Settings] If you dont have Pool Settings you get a Warning, but the pool does work anyway.
+To populate the Pool at the start of your game with some preconfigured prefabs you can use the *PoolSettings* to do so. You can create them with [Tools->Pool->Create Pool Settings] If you dont have *PoolSettings* you get a Warning, but the pool does work anyway.
 
 ## Conclusion
 
-The pool is really solid if you take care that OnDisable() is your reset method.
+The pool is really solid if you take care that *OnDisable()* is your reset method.
 The bad thing about unity and pooling is always that you can't get disabled instances of GameObjects from a prefab, except you disable the prefab in scene view and save the result, so that your prefab assets are disabled.
 
-Anyway i had no problems with my OnEnable and OnDisable strategy but you should keep in mind that if you instantiate the pool the first time every objects calls OnEnable and OnDisable.
+Anyway i had no problems with my *OnEnable()* and *OnDisable()* strategy but you should keep in mind that if you instantiate the pool the first time every objects calls *OnEnable()* and *OnDisable()*.
