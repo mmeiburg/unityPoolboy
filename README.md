@@ -63,5 +63,9 @@ Anyway I had no problems with my `OnEnable()` and `OnDisable()` strategy but you
 If you use `ParticleSystems` disable them after playing, otherwise you don't have the pooling advantage.
 
 ## Made with
-https://ruhken.itch.io/follovers
-https://ruhken.itch.io/tangle-toys
+<a href="https://ruhken.itch.io/follovers">
+<img src="https://img.itch.zone/aW1nLzE4ODY3NzMucG5n/315x250%23c/Xx1SH9.png" alt="Follovers Game" width="300" height="250">
+</a>
+<a href="https://ruhken.itch.io/follovers">
+<img src="https://img.itch.zone/aW1nLzIxNjczMzYucG5n/315x250%23c/YmTuQn.png" alt="Tangle Toys" width="300" height="250">
+</a>
