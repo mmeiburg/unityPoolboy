@@ -5,7 +5,7 @@ namespace PoolAttendant
     public class PoolEntity : MonoBehaviour
     {
         [SerializeField]
-        private GameObject prefab;
+        private GameObject prefab = null;
 
         private void OnEnable()
         {
