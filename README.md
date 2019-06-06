@@ -42,7 +42,7 @@ If you call `GetPooledInstance()` you get a `GameObject` out of a list of disabl
 
 The typical reseting part takes place in unity's `OnDisable()` method, you dont have to call reset or something to get a valid state of the object. You just have to clean it up in `OnDisable()`. Easy right? :)
 
-Additionally every pooled object gets a `PoolEntity` Component, the only reason for this is to reparenting a pooled object to the pool if you changed his parent after calling `GetPooledInstance()`
+Additionally every pooled object gets a `PoolEntity` Component, the only two reasons for this are to reparenting a pooled object to the pool if you changed his parent after calling `GetPooledInstance()` and to remove the object from the pool if you really want to destroy it.
 
 The last important part is that you have to call `Pool.Initialize()`; Somewhere to populate the pool at the start, that reduces lag spikes during the gameplay.
 
@@ -57,3 +57,7 @@ The pool is really solid if you take care that `OnDisable()` is your reset metho
 The bad thing about unity and pooling is that you can't get disabled instances of GameObjects from a prefab, except you save a disabled prefab.
 
 Anyway I had no problems with my `OnEnable()` and `OnDisable()` strategy but you should keep in mind that if you instantiate the pool the first time every objects calls `OnEnable()` and `OnDisable()`.
+
+## Tips
+
+If you use `ParticleSystems` disable them after playing, otherwise you don't have the pooling advantage.
