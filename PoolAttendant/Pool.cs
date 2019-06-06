@@ -176,6 +176,15 @@ namespace PoolAttendant
             obj.transform.SetParent(parentTransform, true);
         }
 
+        public void Remove(GameObject gameObject, int instanceId)
+        {
+            if (!items.TryGetValue(instanceId, out List<GameObject> list)) {
+                return;
+            }
+
+            list.Remove(gameObject);
+        }
+        
         #region Editor
 #if UNITY_EDITOR
         [MenuItem(MenuItem)]
@@ -202,5 +211,6 @@ namespace PoolAttendant
         }
 #endif
         #endregion
+
     }
 }

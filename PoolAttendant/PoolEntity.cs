@@ -20,5 +20,10 @@ namespace PoolAttendant
         {
             this.prefab = prefab;
         }
+        
+        private void OnDestroy()
+        {
+            Pool.Instance.Remove(gameObject, prefab.GetInstanceID());
+        }
     }
 }
