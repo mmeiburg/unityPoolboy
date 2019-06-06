@@ -48,7 +48,7 @@ The last important part is that you have to call `Pool.Initialize()`; Somewhere 
 
 ### PoolSettings
 
-To populate the pool at the start of your game with some preconfigured prefabs you can use the `PoolSettings` to do so. You can create them with [Tools->Pool->Create Pool Settings] If you dont have `PoolSettings` you get a Warning, but the pool does work anyway.
+To populate the pool at the start of your game with some preconfigured prefabs you can use the `PoolSettings` to do so. You can create them with [Tools->Pool->Create Pool Settings] If you don't have `PoolSettings` you get a Warning, but the pool does work anyway.
 
 ## Conclusion
 
@@ -61,3 +61,7 @@ Anyway I had no problems with my `OnEnable()` and `OnDisable()` strategy but you
 ## Tips
 
 If you use `ParticleSystems` disable them after playing, otherwise you don't have the pooling advantage.
+
+## Made with
+https://ruhken.itch.io/follovers
+https://ruhken.itch.io/tangle-toys
