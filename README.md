@@ -6,35 +6,38 @@ My goal was to have the easiest way to get the pooling functionality for my game
 ## What you get?
 You get a pool to reduce lags during runtime if you want to instantiate `GameObject`'s.
 
-## How to use?
+## Example?
 
-Get a pooled `GameObject` from a prefab
+Get a pooled `Bullet` from a prefab
 ```cs
-public class GameObjectExample
-{
-   [SerializedField] private GameObject prefab;
+    public class PlayerShooting : MonoBehaviour
+    {
+        [SerializeField]
+        private Bullet bulletPrefab;
 
-   private void InstantiateSomething()
-   {
-       GameObject obj = prefab.GetPooledInstance(); // <== here the magic happens
-   }
-}
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Space)) {
+                bulletPrefab.GetPooledInstance();
+            }
+        }
+    }
+    
+    public class Bullet : MonoBehaviour
+    {
+        private IEnumerator Start()
+        {
+            yield return new WaitForSeconds(2);
+            
+            gameObject.SetActive(false);
+        }
+    }
 
 ```
 
-Get a pooled `ParticleSystem` from a prefab
-```cs
-public class ExampleClass
-{
-   [SerializedField] private ParticleSystem systemPrefab;
+<img src="https://imgur.com/njborfz" alt="Shooting Bullets" width="250" height="115">
+<img src="https://imgur.com/doB3gUX" alt="Add Prefab" width="250" height="115">
 
-   private void InstantiateSomething()
-   {
-       ParticleSystem obj = systemPrefab.GetPooledInstance<ParticleSystem>(); // <== here the magic happens
-   }
-}
-
-```
 
 ## How it works?
 
