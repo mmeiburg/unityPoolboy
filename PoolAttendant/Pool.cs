@@ -39,8 +39,6 @@ namespace PoolAttendant
                     settings = Resources.Load<PoolSettings>(SettingsLoadPath)
                 };
 
-                instance.container.position = new Vector3(0,0,0);
-
                 if (instance.settings == null) {
                     
                     Debug.LogWarning(
@@ -126,7 +124,7 @@ namespace PoolAttendant
 
         private Transform CreateParent(string name)
         {
-            Transform childContainer = new GameObject(name + string.Empty + PoolName).transform;
+            Transform childContainer = new GameObject($"{name} {PoolName}").transform;
             childContainer.transform.SetParent(container);
 
             return childContainer;

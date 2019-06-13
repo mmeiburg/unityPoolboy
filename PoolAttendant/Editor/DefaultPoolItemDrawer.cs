@@ -24,10 +24,9 @@ namespace PoolAttendant.Editor
             EditorGUI.PropertyField(
                 new Rect(pos.x, pos.y, 40, pos.height), size, GUIContent.none);
             
-            EditorGUI.ObjectField(
-                new Rect(pos.x + 40, pos.y, pos.width - 40, pos.height), "",
+            prefab.objectReferenceValue = EditorGUI.ObjectField(
+                new Rect(pos.x + 40, pos.y, pos.width - 40, pos.height), string.Empty,
                 prefab.objectReferenceValue, typeof(GameObject), false);
-
 
             EditorGUI.EndProperty();
         }
