@@ -16,7 +16,7 @@ public class GameObjectExample
 
    private void InstantiateSomething()
    {
-       GameObject obj = prefab.GetPooledInstance();
+       GameObject obj = prefab.GetPooledInstance(); // <== here the magic happens
    }
 }
 
@@ -30,7 +30,7 @@ public class ExampleClass
 
    private void InstantiateSomething()
    {
-       ParticleSystem obj = system.GetPooledInstance<ParticleSystem>();
+       ParticleSystem obj = systemPrefab.GetPooledInstance<ParticleSystem>(); // <== here the magic happens
    }
 }
 
@@ -38,7 +38,7 @@ public class ExampleClass
 
 ## How it works?
 
-If you call `GetPooledInstance()` you get a `GameObject` out of a list of disabled GameObjects depends on the prefabs instance id. If no object is available a new one will be added. 
+If you call `GetPooledInstance()` you get a `GameObject` out of a list of disabled GameObjects depends on the prefabs instance id. If no object is available a new one will be added.
 
 The typical reseting part takes place in unity's `OnDisable()` method, you dont have to call reset or something to get a valid state of the object. You just have to clean it up in `OnDisable()`. Easy right? :)
 
