@@ -8,6 +8,11 @@ You get a pool to reduce lags during runtime if you want to instantiate `GameObj
 
 ## Example?
 
+Following examples shows a simple shooting script.
+
+I just drag and drop the bullet prefab to the reference slot in the PlayerShooting script. And press space.
+<img src="https://i.imgur.com/doB3gUX.gif" alt="Add Prefab" width="500" height="250">
+
 Get a pooled `Bullet` from a prefab
 ```cs
     public class PlayerShooting : MonoBehaviour
@@ -35,8 +40,8 @@ Get a pooled `Bullet` from a prefab
 
 ```
 
-<img src="https://imgur.com/njborfz" alt="Shooting Bullets" width="250" height="115">
-<img src="https://imgur.com/doB3gUX" alt="Add Prefab" width="250" height="115">
+Everytime space get pressed you get a bullet from the pool. The bullet will be disabled after 2 seconds so its ready again for the pool.
+<img src="https://i.imgur.com/njborfz.gif" alt="Shooting Bullets" width="300" height="400">
 
 
 ## How it works?
