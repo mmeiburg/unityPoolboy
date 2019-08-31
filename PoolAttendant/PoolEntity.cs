@@ -6,7 +6,12 @@ namespace PoolAttendant
     {
         [SerializeField]
         private GameObject prefab = null;
-
+        
+        public GameObject Prefab {
+            get => prefab;
+            set => prefab = value;
+        }
+        
         private void OnEnable()
         {
             if (prefab == null) {
@@ -16,13 +21,12 @@ namespace PoolAttendant
             Pool.Instance.Reparent(gameObject, prefab.GetInstanceID());
         }
 
-        public void SetPrefab(GameObject prefab)
-        {
-            this.prefab = prefab;
-        }
-        
         private void OnDestroy()
         {
+            if (prefab == null) {
+                return;
+            }
+            
             Pool.Instance.Remove(gameObject, prefab.GetInstanceID());
         }
     }

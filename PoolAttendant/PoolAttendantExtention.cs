@@ -4,84 +4,70 @@ namespace PoolAttendant
 {
     public static class PoolAttendantExtention
     {
-        public static GameObject GetPooledInstance(this MonoBehaviour mono)
+        // GameObject Extention
+        
+        public static GameObject GetPooledInstance(this GameObject prefab, bool inactive = false)
         {
-            return mono.gameObject.GetPooledInstance();
-        }
-
-        public static GameObject GetPooledInstance(this MonoBehaviour mono, Vector3 position)
-        {
-            return mono.gameObject.GetPooledInstance(position, Quaternion.identity);
+            return prefab.GetPooledInstance(Vector3.zero, inactive);
         }
         
-        public static GameObject GetPooledInstance(this MonoBehaviour mono, Vector3 position, Quaternion rotation)
+        public static GameObject GetPooledInstance(this GameObject prefab, Vector3 position, bool inactive = false)
         {
-            return mono.gameObject.GetPooledInstance(position, rotation, Vector3.one);
+            return prefab.GetPooledInstance(position, prefab.transform.rotation, inactive);
         }
         
-        public static GameObject GetPooledInstance(this MonoBehaviour mono, Vector3 position, Quaternion rotation, Vector3 scale)
+        public static GameObject GetPooledInstance(this GameObject prefab, Vector3 position, Quaternion rotation, bool inactive = false)
         {
-            return Pool.Instance.Get(mono.gameObject, position, rotation, scale);
+            return prefab.GetPooledInstance(position, rotation, prefab.transform.localScale, inactive);
         }
         
-        public static T GetPooledInstance<T>(this MonoBehaviour mono) where T : Component
+        public static GameObject GetPooledInstance(this GameObject prefab, Vector3 position, Quaternion rotation, Vector3 scale, bool inactive = false)
         {
-            return mono.gameObject.GetPooledInstance<T>(Vector3.zero);
+            return Pool.Instance.Get(prefab, position, rotation, scale, inactive);
         }
         
-        public static T GetPooledInstance<T>(this MonoBehaviour mono, Vector3 position) where T : Component
+        // GameObject Extention
+        
+        public static T GetPooledInstance<T>(this GameObject prefab, bool inactive = false) where T : Component
         {
-            return mono.gameObject.GetPooledInstance<T>(Vector3.zero, Quaternion.identity);
+            return prefab.GetPooledInstance<T>(Vector3.zero, inactive);
         }
         
-        public static T GetPooledInstance<T>(this MonoBehaviour mono, Vector3 position, Quaternion rotation) where T : Component
+        public static T GetPooledInstance<T>(this GameObject prefab, Vector3 position, bool inactive = false) where T : Component
         {
-            return mono.gameObject.GetPooledInstance<T>(Vector3.zero, Quaternion.identity, Vector3.one);
+            return prefab.GetPooledInstance<T>(position, prefab.transform.rotation, inactive);
         }
         
-        public static T GetPooledInstance<T>(this MonoBehaviour mono, Vector3 position, Quaternion rotation, Vector3 scale) where T : Component
+        public static T GetPooledInstance<T>(this GameObject prefab, Vector3 position, Quaternion rotation, bool inactive = false) where T : Component
         {
-            return Pool.Instance.Get<T>(mono.gameObject, position, rotation, scale);
-        }        
-        
-        public static GameObject GetPooledInstance(this GameObject prefab)
-        {
-            return prefab.GetPooledInstance(Vector3.zero);
+            return prefab.GetPooledInstance<T>(position, rotation, prefab.transform.localScale, inactive);
         }
         
-        public static GameObject GetPooledInstance(this GameObject prefab, Vector3 position)
+        public static T GetPooledInstance<T>(this GameObject prefab, Vector3 position, Quaternion rotation, Vector3 scale, bool inactive = false) where T : Component
         {
-            return prefab.GetPooledInstance(position, Quaternion.identity);
+            return Pool.Instance.Get<T>(prefab, position, rotation, scale, inactive);
         }
         
-        public static GameObject GetPooledInstance(this GameObject prefab, Vector3 position, Quaternion rotation)
+        // GameObject Generic Extention
+        
+        public static T GetPooledInstance<T>(this T prefab, bool inactive = false) where T : Component
         {
-            return prefab.GetPooledInstance(position, rotation, Vector3.one);
+            return prefab.GetPooledInstance(Vector3.zero, inactive);
         }
         
-        public static GameObject GetPooledInstance(this GameObject prefab, Vector3 position, Quaternion rotation, Vector3 scale)
+        public static T GetPooledInstance<T>(this T prefab, Vector3 position, bool inactive = false) where T : Component
         {
-            return Pool.Instance.Get(prefab, position, rotation, scale);
+            return prefab.GetPooledInstance(position, prefab.transform.rotation, inactive);
         }
         
-        public static T GetPooledInstance<T>(this GameObject prefab) where T : Component
+        public static T GetPooledInstance<T>(this T prefab, Vector3 position, Quaternion rotation, bool inactive = false) where T : Component
         {
-            return prefab.GetPooledInstance<T>(Vector3.zero);
+            return prefab.GetPooledInstance<T>(position, rotation, prefab.transform.localScale, inactive);
         }
         
-        public static T GetPooledInstance<T>(this GameObject prefab, Vector3 position) where T : Component
+        public static T GetPooledInstance<T>(this T prefab, Vector3 position, Quaternion rotation, Vector3 scale, bool inactive = false) where T : Component
         {
-            return prefab.GetPooledInstance<T>(Vector3.zero, Quaternion.identity);
-        }
-        
-        public static T GetPooledInstance<T>(this GameObject prefab, Vector3 position, Quaternion rotation) where T : Component
-        {
-            return prefab.GetPooledInstance<T>(Vector3.zero, Quaternion.identity, Vector3.one);
-        }
-        
-        public static T GetPooledInstance<T>(this GameObject prefab, Vector3 position, Quaternion rotation, Vector3 scale) where T : Component
-        {
-            return Pool.Instance.Get<T>(prefab, position, rotation, scale);
+            return Pool.Instance.Get<T>(prefab.gameObject, position, rotation, scale, inactive);
         }
     }
 }

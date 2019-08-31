@@ -115,8 +115,11 @@ namespace PoolAttendant
                 prefab.transform.position,
                 prefab.transform.rotation,
                 parent);
-            
-            obj.AddComponent<PoolEntity>().SetPrefab(prefab);
+
+            if (obj.GetComponent<PoolEntity>() == null) {
+                PoolEntity e = obj.AddComponent<PoolEntity>();
+                e.Prefab = prefab;
+            }
 
             obj.SetActive(false);
             return obj;
@@ -130,7 +133,7 @@ namespace PoolAttendant
             return childContainer;
         }
 
-        public GameObject Get(GameObject prefab, Vector3 position, Quaternion rotation, Vector3 scale)
+        public GameObject Get(GameObject prefab, Vector3 position, Quaternion rotation, Vector3 scale, bool inactive = false)
         {
             GameObject obj;
             
@@ -150,15 +153,17 @@ namespace PoolAttendant
             obj.transform.position = position;
             obj.transform.rotation = rotation;
             obj.transform.localScale = scale;
-            
-            obj.SetActive(true);
+
+            if (!inactive) {
+                obj.SetActive(true);
+            }
 
             return obj;
         }
 
-        public T Get<T>(GameObject prefab, Vector3 position, Quaternion rotation, Vector3 scale) where T : Component
+        public T Get<T>(GameObject prefab, Vector3 position, Quaternion rotation, Vector3 scale, bool inactive = false) where T : Component
         {
-            return Get(prefab, position, rotation, scale).GetComponent<T>();
+            return Get(prefab, position, rotation, scale, inactive).GetComponent<T>();
         }
 
         public void Reparent(GameObject obj, int instanceId)
@@ -167,7 +172,7 @@ namespace PoolAttendant
                 return;
             }
 
-            if (obj.transform.parent.Equals(parentTransform)) {
+            if (parentTransform.Equals(obj.transform.parent)) {
                 return;
             }
                 
