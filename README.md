@@ -81,5 +81,10 @@ If you use `ParticleSystems` disable them after playing, otherwise you don't hav
 <a href="https://ruhken.itch.io/follovers">
 <img src="https://img.itch.zone/aW1nLzIxNjczMzYucG5n/315x250%23c/YmTuQn.png" alt="Tangle Toys" width="250" height="200">
 </a>
+<a href="https://1-jar.itch.io/cuddle-waddle">
+<img src="https://img.itch.zone/aW1nLzMxOTk1MTgucG5n/315x250%23c/8bgbl7.png" alt="Cuddle Waddle" width="250" height="200">
+</a>
+
+
 
 
