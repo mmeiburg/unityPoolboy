@@ -2,9 +2,15 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace PoolAttendant
+namespace Pool
 {
     public class PoolSettings : ScriptableObject
+    {
+        public DefaultPoolItemList list = new DefaultPoolItemList();
+    }
+
+    [Serializable]
+    public class DefaultPoolItemList
     {
         public List<DefaultPoolItem> items = new List<DefaultPoolItem>();
     }

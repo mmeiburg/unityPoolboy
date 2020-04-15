@@ -7,9 +7,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Component = UnityEngine.Component;
 
-namespace PoolAttendant
+namespace Pool
 {
-    public class Pool
+    public class Pool : MonoBehaviour
     {
         private static Pool instance;
         
@@ -22,23 +22,25 @@ namespace PoolAttendant
         
         private readonly Dictionary<int, List<GameObject>> items = new Dictionary<int, List<GameObject>>();
         private readonly Dictionary<int, Transform> parents = new Dictionary<int, Transform>();
+        private static bool applicationIsQuitting;
 
         public static GameObject Initialize()
         {
             return Instance.container.gameObject;
         }
-
-        public static Pool Instance {
-            get {
-                if (instance != null) {
-                    return instance;
-                }
-
-                instance = new Pool {
-                    container = new GameObject(PoolName).transform,
-                    settings = Resources.Load<PoolSettings>(SettingsLoadPath)
-                };
-
+        
+        private void Awake()
+        {
+            if(instance == null) {
+                instance = this;
+                
+                DontDestroyOnLoad(gameObject);
+                
+                instance.container = instance.transform;
+                instance.settings = Resources.Load<PoolSettings>(SettingsLoadPath);
+                
+                Application.quitting += () => applicationIsQuitting = true;
+                
                 if (instance.settings == null) {
                     
                     Debug.LogWarning(
@@ -47,19 +49,27 @@ namespace PoolAttendant
                         "settings with [\"Tools\\Pool\\Create PoolSettings\"]");
                 }
                 
-                instance.CreateDefaultItems();
+                SceneManager.activeSceneChanged += DeactivateAllObjects;
                 
-                return instance;
+                //instance.CreateDefaultItems();
+                
+            } else {
+                Destroy(gameObject);
             }
         }
 
+        private void OnDestroy()
+        {
+            SceneManager.activeSceneChanged -= DeactivateAllObjects;
+        }
+
+        public static Pool Instance => instance != null ? instance : applicationIsQuitting ? null : new GameObject(PoolName).AddComponent<Pool>();
+
         private void CreateDefaultItems()
         {
-            foreach (DefaultPoolItem item in settings.items) {
+            foreach (DefaultPoolItem item in settings.list.items) {
                 InstantiateDefaultItems(item);
             }
-            
-            SceneManager.activeSceneChanged += DeactivateAllObjects;
         }
 
         private void InstantiateDefaultItems(DefaultPoolItem item)
@@ -83,9 +93,20 @@ namespace PoolAttendant
                 foreach (GameObject obj in objects) {
                     if (obj != null) {
                         obj.SetActive(false);
+                        Destroy(obj);
                     }
                 }
+                objects.Clear();
             }
+            
+            items.Clear();
+
+            foreach (Transform child in parents.Values) {
+                Destroy(child.gameObject);
+            }
+            parents.Clear();
+
+            instance.CreateDefaultItems();
         }
         
         private GameObject InstantiateListAndGetFirst(GameObject prefab, int size = 1)
