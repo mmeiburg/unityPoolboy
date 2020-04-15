@@ -73,16 +73,16 @@ If you use `ParticleSystems` disable them after playing, otherwise you don't hav
 
 ## Made with
 <a href="https://wildwoods.itch.io/wildwoods">
-<img src="https://img.itch.zone/aW1nLzIyNzAzMjUucG5n/315x250%23c/j71zvH.png" alt="Tangle Toys" width="250" height="200">
+<img src="https://img.itch.zone/aW1nLzIyNzAzMjUucG5n/315x250%23c/j71zvH.png" alt="Tangle Toys" width="200" height="150">
 </a>
 <a href="https://ruhken.itch.io/follovers">
-<img src="https://img.itch.zone/aW1nLzE4ODY3NzMucG5n/315x250%23c/Xx1SH9.png" alt="Follovers Game" width="250" height="200">
+<img src="https://img.itch.zone/aW1nLzE4ODY3NzMucG5n/315x250%23c/Xx1SH9.png" alt="Follovers Game" width="200" height="150">
 </a>
 <a href="https://ruhken.itch.io/follovers">
-<img src="https://img.itch.zone/aW1nLzIxNjczMzYucG5n/315x250%23c/YmTuQn.png" alt="Tangle Toys" width="250" height="200">
+<img src="https://img.itch.zone/aW1nLzIxNjczMzYucG5n/315x250%23c/YmTuQn.png" alt="Tangle Toys" width="200" height="150">
 </a>
 <a href="https://1-jar.itch.io/cuddle-waddle">
-<img src="https://img.itch.zone/aW1nLzMxOTk1MTgucG5n/315x250%23c/8bgbl7.png" alt="Cuddle Waddle" width="250" height="200">
+<img src="https://img.itch.zone/aW1nLzMxOTk1MTgucG5n/315x250%23c/8bgbl7.png" alt="Cuddle Waddle" width="200" height="150">
 </a>
 
 
