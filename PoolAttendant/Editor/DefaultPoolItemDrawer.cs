@@ -2,7 +2,7 @@
 using UnityEditorInternal;
 using UnityEngine;
 
-namespace Pool.Editor
+namespace TinyTools.PoolAttendant
 {
     [CustomPropertyDrawer(typeof(DefaultPoolItem))]
     public class DefaultPoolItemDrawer : PropertyDrawer

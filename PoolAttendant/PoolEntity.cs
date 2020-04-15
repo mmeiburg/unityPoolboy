@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace PoolAttendant
+namespace TinyTools.PoolAttendant
 {
     public class PoolEntity : MonoBehaviour
     {

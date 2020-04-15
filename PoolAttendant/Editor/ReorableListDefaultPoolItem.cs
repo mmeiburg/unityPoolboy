@@ -2,7 +2,7 @@ using UnityEditor;
 using UnityEditorInternal;
 using UnityEngine;
 
-namespace Pool.Editor
+namespace TinyTools.PoolAttendant
 {
     [CustomPropertyDrawer(typeof(DefaultPoolItemList))]
     public class ReorableListDefaultPoolItem : PropertyDrawer
