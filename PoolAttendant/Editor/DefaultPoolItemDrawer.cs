@@ -10,7 +10,8 @@ namespace TinyTools.PoolAttendant
         private SerializedProperty prefab;
         private SerializedProperty size;
 
-        private const int Spacing = 2;
+        private const int SizeSize = 30;
+        private const int Spacing = 4;
 
         public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
         {
@@ -21,20 +22,17 @@ namespace TinyTools.PoolAttendant
         {
             using (new EditorGUI.PropertyScope(position, label, property)) {
                 
-                property.serializedObject.Update();
-                
                 prefab = property.FindPropertyRelative("prefab");
                 size = property.FindPropertyRelative("size");
                 
+                var textDimensions = GUIStyle.none.CalcSize(new GUIContent("text"));
+                
                 EditorGUI.PropertyField(
-                    new Rect(position.x, position.y, 40, position.height), size, GUIContent.none);
-            
+                    new Rect(position.x, position.y, SizeSize, position.height), size, GUIContent.none);
+
                 prefab.objectReferenceValue = EditorGUI.ObjectField(
-                    new Rect(position.x + 40 + Spacing, position.y, position.width - 40 - Spacing, position.height), string.Empty,
+                    new Rect(position.x + SizeSize + Spacing, position.y, position.width - SizeSize - Spacing, position.height), GUIContent.none, 
                     prefab.objectReferenceValue, typeof(GameObject), false);
-                    
-                    
-                property.serializedObject.ApplyModifiedProperties();
             }
         }
     }

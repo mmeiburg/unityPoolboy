@@ -5,11 +5,13 @@ using UnityEngine;
 namespace TinyTools.PoolAttendant
 {
     [CustomPropertyDrawer(typeof(DefaultPoolItemList))]
-    public class ReorableListDefaultPoolItem : PropertyDrawer
+    public class ReorderableListDefaultPoolItem : PropertyDrawer
     {
         private SerializedProperty listProperty;
         private SerializedObject serializedObject;
         private ReorderableList reorderableList;
+        
+        private const float DefaultHeight = 65;
         
         private void Initialize(SerializedProperty property)
         {
@@ -47,10 +49,22 @@ namespace TinyTools.PoolAttendant
             };
         }
 
-        public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
+        public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
         {
             Initialize(property);
-            reorderableList?.DoLayoutList();
+
+            float height = DefaultHeight;
+            
+            for (int i = 0; i < reorderableList.count; i++) {
+                height += EditorGUI.GetPropertyHeight(listProperty.GetArrayElementAtIndex(i));
+            }
+
+            return height;
+        }
+
+        public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
+        {
+            reorderableList.DoList(position);
         }
         
         private void FindItemsProperty(SerializedProperty property)
