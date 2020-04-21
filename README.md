@@ -65,7 +65,7 @@ The pool is really solid if you take care that `OnDisable()` is your reset metho
 
 The bad thing about unity and pooling is that you can't get disabled instances of GameObjects from a prefab, except you save a disabled prefab.
 
-Anyway I had no problems with my `OnEnable()` and `OnDisable()` strategy but you should keep in mind that if you instantiate the pool the first time every objects calls `OnEnable()` and `OnDisable()`.
+Anyway I had no problems with my `OnEnable()` and `OnDisable()` strategy but you should keep in mind that if you instantiate the pool the first time every object calls `OnEnable()` and `OnDisable()`.
 
 ## Tips
 
@@ -78,7 +78,7 @@ If you use `ParticleSystems` disable them after playing, otherwise you don't hav
 <a href="https://ruhken.itch.io/follovers">
 <img src="https://img.itch.zone/aW1nLzE4ODY3NzMucG5n/315x250%23c/Xx1SH9.png" alt="Follovers Game" width="200" height="150">
 </a>
-<a href="https://ruhken.itch.io/follovers">
+<a href="https://ruhken.itch.io/tangle-toys">
 <img src="https://img.itch.zone/aW1nLzIxNjczMzYucG5n/315x250%23c/YmTuQn.png" alt="Tangle Toys" width="200" height="150">
 </a>
 <a href="https://1-jar.itch.io/cuddle-waddle">
