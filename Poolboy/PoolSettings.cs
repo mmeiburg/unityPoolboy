@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace TinyTools.PoolAttendant
+namespace TinyTools.Poolboy
 {
     public class PoolSettings : ScriptableObject
     {

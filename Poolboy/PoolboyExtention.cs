@@ -1,8 +1,8 @@
 using UnityEngine;
 
-namespace TinyTools.PoolAttendant
+namespace TinyTools.Poolboy
 {
-    public static class PoolAttendantExtention
+    public static class PoolboyExtention
     {
         // GameObject Extention
         

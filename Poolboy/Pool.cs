@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Component = UnityEngine.Component;
 
-namespace TinyTools.PoolAttendant
+namespace TinyTools.Poolboy
 {
     public class Pool : MonoBehaviour
     {
