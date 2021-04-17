@@ -73,7 +73,7 @@ If you use `ParticleSystems` disable them after playing, otherwise you don't hav
 
 ## Made with
 <a href="https://wildwoods.itch.io/wildwoods">
-<img src="https://img.itch.zone/aW1nLzIyNzAzMjUucG5n/315x250%23c/j71zvH.png" alt="Tangle Toys" width="200" height="150">
+<img src="https://img.itch.zone/aW1nLzIyNzAzMjUucG5n/315x250%23c/j71zvH.png" alt="Wild Woods" width="200" height="150">
 </a>
 <a href="https://ruhken.itch.io/follovers">
 <img src="https://img.itch.zone/aW1nLzE4ODY3NzMucG5n/315x250%23c/Xx1SH9.png" alt="Follovers Game" width="200" height="150">
